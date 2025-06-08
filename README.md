@@ -60,12 +60,12 @@ lib/
 ├ shared/                   # Cross-feature UI & helpers
 │ ├ components/             # custom_button, custom_text_field
 │ ├ providers/              # app_settings_provider, localization_provider, theme_provider
-│ └ widgets/                # loading_overlay, error_view, spacing_box
+│ └ widgets/                # responsive_wrapper, spacing_box
 
 └ features/                 # Vertical slices / domains
   ├ splash/                # splash_screen.dart
   ├ auth/                  # auth_repository, AuthProvider, login_screen
-  ├ home/                  # HomeProvider, home_screen
+  ├ home/                  # home_screen
   └ …                      # add more (cart, profile, orders, etc.)
 ```
 
