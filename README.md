@@ -5,7 +5,7 @@
 <h1 align="center">🐣 Base Nest</h1>
 
 <p align="center">
-  A clean and scalable Flutter boilerplate that kickstarts your app development with built-in native state management, localization, theming, networking, and storage — ready out of the box.
+  A clean, scalable Flutter boilerplate with built-in native state management, theming, i18n, networking, storage, and error/loading states—ready out of the box.
 </p>
 
 <p align="center">
@@ -18,81 +18,106 @@
 
 ## ✨ Features
 
-- ✅ Native Flutter State Management (`setState`, `ChangeNotifier`, `Provider`)
-- 🌗 Dynamic Theming (Light & Dark Mode)
-- 🌍 Internationalization using `flutter_localizations` & `intl`
-- 🌐 Robust Networking with `dio` & `dio_retry_plus`
-- 📶 Internet connectivity handling with `connectivity_plus`
-- 💾 Local Storage with `shared_preferences`
-- 🧱 Modular Architecture
-- 🧪 Ready for integration with Bloc, GetX, etc.
+- 🚀 **Feature-first modular architecture**  
+- ✅ Native state management with `ChangeNotifier` & `Provider`  
+- 🌗 Light & Dark themes (via `core/theme`)  
+- 🌍 Localization (ARB files under `l10n/` at project root)  
+- 🌐 Networking with `dio` + `dio_retry_plus` & retry logic  
+- 📶 Connectivity handling (`connectivity_plus`)  
+- 💾 Persistent storage (`shared_preferences`)  
+- ⚙️ Config folder for environment settings (`config/network_config.dart`)  
+- 🧱 Shared UI: buttons, text fields, spacing, responsive wrapper  
 
 ---
 
 ## 📁 Folder Structure
 
-<!-- You can add your folder structure here -->
+```text
+l10n/                       # ARB localization files
+├ app_en.arb
+└ app_ar.arb
+
+lib/
+├ main.dart                 # App entry point
+
+├ config/                   # Static configuration
+│ └ network_config.dart
+
+├ core/                     # Pure building blocks
+│ ├ constants/              # app_colors, spacing, text_styles
+│ ├ theme/                  # dark_theme, light_theme, theme_manager
+│ ├ navigation/             # route_manager.dart
+│ ├ localization/           # app_localizations, supported_locales
+│ └ utils/                  # logger, extensions, helpers
+
+├ services/                 # Business logic & dependencies
+│ ├ network/                # dio_client.dart
+│ ├ api_service.dart
+│ ├ connectivity_service.dart
+│ ├ local_storage_service.dart
+│ └ exceptions/             # api_exceptions.dart
+
+├ shared/                   # Cross-feature UI & helpers
+│ ├ components/             # custom_button, custom_text_field
+│ ├ providers/              # app_settings_provider, localization_provider, theme_provider
+│ └ widgets/                # loading_overlay, error_view, spacing_box
+
+└ features/                 # Vertical slices / domains
+  ├ splash/                # splash_screen.dart
+  ├ auth/                  # auth_repository, AuthProvider, login_screen
+  ├ home/                  # HomeProvider, home_screen
+  └ …                      # add more (cart, profile, orders, etc.)
+```
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/iwritecodeforyou/base_nest.git
-cd base_nest
-```
-
-### 2. Install Dependencies
-
-```bash
-flutter pub get
-```
-
-### 3. Run the App
-
-```bash
-flutter run
-```
+1. **Clone & open**  
+   ```bash
+   git clone https://github.com/iwritecodeforyou/base_nest.git
+   cd base_nest
+   ```
+2. **Install dependencies**  
+   ```bash
+   flutter pub get
+   ```
+3. **Run the app**  
+   ```bash
+   flutter run
+   ```
 
 ---
 
-## 📦 Dependencies
+## 📦 Primary Dependencies
 
-| Package               | Description                                 |
-|------------------------|---------------------------------------------|
-| `flutter_localizations` | Built-in i18n support                     |
-| `intl`                  | Formatting and localization               |
-| `connectivity_plus`     | Internet connectivity detection           |
-| `dio`                   | Advanced HTTP client                      |
-| `dio_retry_plus`        | Retry mechanism for Dio                   |
-| `shared_preferences`    | Key-value storage                         |
-| `provider`              | Native state management                   |
-| `logger`                | Elegant logging                           |
-| `flutter_launcher_icons`| Auto generate launcher icons              |
-| `change_app_package_name`| Easily change app bundle ID             |
+| Package                         | Purpose                                           |
+|---------------------------------|---------------------------------------------------|
+| `provider`                      | Native state management                           |
+| `dio`                           | HTTP client                                       |
+| `dio_retry_plus`                | Retry interceptor for Dio                         |
+| `connectivity_plus`             | Network status detection                          |
+| `shared_preferences`            | Key-value persistent storage                      |
+| `flutter_localizations`, `intl` | App localization                                  |
+| `flutter_launcher_icons`        | Generate app icons                                |
+| `change_app_package_name`       | Rename app bundle ID                              |
 
 ---
 
-## 📸 Screenshots
+## 🛠 Contributing
 
-> Add screenshots or screen recordings here to show the UI, features, or states.
+We welcome all contributions! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) and our [Code of Conduct](./CODE_OF_CONDUCT.md) before opening issues or PRs.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the **MIT License**. See [LICENSE](./LICENSE) for details.
 
 ---
 
-## 💖 Contributing
+## 👨‍💻 Maintainer & Community
 
-We welcome contributions from the community! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
----
-
-## 👨‍💻 Maintainer
-
-Maintained with ❤️ by [@iwritecodeforyou](https://github.com/iwritecodeforyou)
+Maintained with ❤️ by **@iwritecodeforyou**  
+Connect on Discord: **iwritecodeforyou**  
+Join our Discord community for real-time chat and support: [discord.gg/MrYPhFsq](https://discord.gg/MrYPhFsq)
